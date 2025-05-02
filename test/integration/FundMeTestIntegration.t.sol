@@ -7,21 +7,19 @@ import {FundMe} from "../../src/FundMe.sol";
 import {DeployFundMe} from "../../script/DeployFundMe.s.sol";
 import {FundFundMe, WithdrawFundMe} from "../../script/Interactions.s.sol";
 
-contract InteractionsTest is Test{
+contract InteractionsTest is Test {
     FundMe fundMe;
-    DeployFundMe deployFundMe; //ovo 
+    DeployFundMe deployFundMe; //ovo
 
     address alice = makeAddr("alice");
     uint256 constant SEND_VALUE = 0.1 ether;
     uint256 constant STARTING_BALANCE = 10 ether;
 
-
-    function setUp() external{
+    function setUp() external {
         DeployFundMe deploy = new DeployFundMe();
         fundMe = deploy.run();
         vm.deal(alice, STARTING_BALANCE);
     }
-
 
     function testUserCanFundAndOwnerWithdraw() public {
         uint256 preUserBalance = address(alice).balance;

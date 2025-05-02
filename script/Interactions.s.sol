@@ -6,7 +6,6 @@ import {Script, console} from "forge-std/Script.sol";
 import {DevOpsTools} from "foundry-devops/src/DevOpsTools.sol";
 import {FundMe} from "../src/FundMe.sol";
 
-
 contract FundFundMe is Script {
     uint256 SEND_VALUE = 0.1 ether;
 
@@ -35,5 +34,4 @@ contract WithdrawFundMe is Script {
         address mostRecentlyDeployed = DevOpsTools.get_most_recent_deployment("FundMe", block.chainid);
         withdrawFundMe(mostRecentlyDeployed);
     }
-
 }
